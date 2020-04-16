@@ -62,8 +62,8 @@
             <?= $errors['is_admin'] ?>
           </div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="avatar">Foto</label>
+        <div class="form-group col-md-6" style="margin-right: center;">
+          <label for="avatar">Foto do perfil</label>
             <input name="arquivo" type="file" method="post" enctype="multipart/form-data"/>
         </div>
      </div>
