@@ -10,7 +10,10 @@ $seconds = WorkingHours::getWorkedTimeInMonth($yearAndMonth);
 $hoursInMonth = explode(':', getTimeStringFromSeconds($seconds))[0];
 
 loadTemplateView('manager_report', [
-    'activeUsersCount' => $activeUsersCount,
-    'absentUsers' => $absentUsers,
-    'hoursInMonth' => $hoursInMonth,
+  'activeUsersCount' => $activeUsersCount,
+  'absentUsers' => $absentUsers,
+  'hoursInMonth' => $hoursInMonth,
 ]);
+
+
+ ?>

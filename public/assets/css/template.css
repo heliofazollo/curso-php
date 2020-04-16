@@ -2,7 +2,7 @@ body {
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 64px 1fr 64px;
-    grid-template-areas: 
+    grid-template-areas:
         "header header"
         "sidebar content"
         "sidebar footer";
@@ -13,7 +13,7 @@ body {
 
 body.hide-sidebar {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "header"
         "content"
         "footer";
@@ -25,7 +25,7 @@ header.header {
     background-color: #1976d2;
     align-items: center;
     z-index: 10;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(0, 0, 0, .2),
         0 4px 4px 0px rgba(0, 0, 0, .14),
         0 1px 10px 0px rgba(0, 0, 0, .12);

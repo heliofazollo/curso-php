@@ -5,23 +5,23 @@ class Model{
   protected static $columns = [];
   protected $values = [];
 
-  function __construct($arr){
-    $this->loadFromArray($arr);
+  function __construct($arr, $sanitize = true){
+    $this->loadFromArray($arr, $sanitize);
   }
 
-  public function loadFromArray($arr){
+  public function loadFromArray($arr, $sanitize = true){
     if ($arr) {
-      //$conn = DataBase::getConnection();
+      $conn = DataBase::getConnection();
       foreach ($arr as $key => $value) {
-        /*$cleanValue = $value;
+        $cleanValue = $value;
         if ($sanitize && isset($cleanValue)) {
           $cleanValue = strip_tags(trim($cleanValue));
           $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES);
           $cleanValue = mysqli_real_escape_string($conn, $cleanValue);
-        }*/
+        }
         $this->$key = $value;
       }
-      //$conn->close();
+      $conn->close();
     }
   }
 

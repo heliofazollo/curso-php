@@ -14,9 +14,9 @@
     <header class="header">
         <div class="logo">
             <i class="icofont-travelling mr-2"></i>
-            <span class="font-weight-light">In </span>
-            <span class="font-weight-bold mx-2">N'</span>
-            <span class="font-weight-light">Out</span>
+            <span class="font-weight-light">Entrada </span>
+            <span class="font-weight-bold mx-2">E'</span>
+            <span class="font-weight-light">Saída</span>
             <i class="icofont-runner-alt-1 ml-2"></i>
         </div>
         <div class="menu-toggle mx-3">
@@ -25,9 +25,10 @@
         <div class="spacer"></div>
         <div class="dropdown">
             <div class="dropdown-button">
-                <img class="avatar" 
-                    src="<?= "http://www.gravatar.com/avatar.php?gravatar_id="
-                    . md5(strtolower(trim($_SESSION['user']->email))) ?>" alt="user">
+                <img class="avatar"
+                    src="<?= //"http://www.gravatar.com/avatar.php?gravatar_id="
+                    "https://s.gravatar.com/avatar/00fb6ee7865f297d7ab6089e5998b8ef?s=80"
+ . md5(strtolower(trim($_SESSION['user']->email))) ?>" alt="user">
                 <span class="ml-3">
                     <?= $_SESSION['user']->name ?>
                 </span>

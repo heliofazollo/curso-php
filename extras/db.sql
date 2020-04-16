@@ -1,8 +1,8 @@
-USE INNOUT;
+USE innout;
 
 DROP TABLE IF EXISTS working_hours, users;
 CREATE TABLE users (
-    id INT(6) AUTO_INCREMENT PRIMARY KEY, 
+    id INT(6) AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE users (
     is_admin BOOLEAN NOT NULL DEFAULT false
 );
 CREATE TABLE working_hours (
-    id INT(6) AUTO_INCREMENT PRIMARY KEY, 
+    id INT(6) AUTO_INCREMENT PRIMARY KEY,
     user_id INT(6),
     work_date DATE NOT NULL,
     time1 TIME,

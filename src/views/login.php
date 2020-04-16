@@ -25,20 +25,20 @@
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email"
-                        class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
-                        value="<?= $email ?>"
+                        class="form-control <?= $errors['email'] /*$exception->get('email')*/ ? 'is-invalid' : '' ?>"
+                        value="<?= isset($email)  ?>"
                         placeholder="Informe o e-mail" autofocus>
                     <div class="invalid-feedback">
-                        <?= $errors['email'] ?>
+                        <?= /*$exception->get('email')*/$errors['email'] ?>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password"
-                        class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
+                        class="form-control <?= $errors['password'] /*$exception->get('password')*/? 'is-invalid' : '' ?>"
                         placeholder="Informe a senha">
                     <div class="invalid-feedback">
-                        <?= $errors['password'] ?>
+                        <?= $errors['password'] /*$exception->get('password')*/?>
                     </div>
                 </div>
             </div>

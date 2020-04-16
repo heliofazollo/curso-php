@@ -2,17 +2,19 @@
 session_start();
 requireValidSession();
 
-$currentDate = new DateTime();
+$currentdate = new DateTime();
 
 $user = $_SESSION['user'];
 $selectedUserId = $user->id;
 $users = null;
 if($user->is_admin) {
     $users = User::get();
-    $selectedUserId = $_POST['user'] ? $_POST['user'] : $user->id;
+    if (!$user) {
+      $selectedUserId = $_POST['user'] ? $_POST['user'] : $user->id;
+    }
 }
 
-$selectedPeriod = $_POST['period'] ? $_POST['period'] : $currentDate->format('Y-m');
+$selectedPeriod = isset($_POST['period']) ? $_POST['period'] : $currentdate->format('Y-m');
 $periods = [];
 for($yearDiff = 0; $yearDiff <= 2; $yearDiff++) {
     $year = date('Y') - $yearDiff;
@@ -21,18 +23,20 @@ for($yearDiff = 0; $yearDiff <= 2; $yearDiff++) {
         $periods[$date->format('Y-m')] = strftime('%B de %Y', $date->getTimestamp());
     }
 }
-
+//$registries = WorkingHours::getMonthlyReport($user->id, new DateTime());
 $registries = WorkingHours::getMonthlyReport($selectedUserId, $selectedPeriod);
 
 $report = [];
 $workDay = 0;
 $sumOfWorkedTime = 0;
-$lastDay = getLastDayOfMonth($currentDate)->format('d');
+$lastDay = getLastDayOfMonth($currentdate)->format('d');
+$date = null;
 
 for($day = 1; $day <= $lastDay; $day++) {
-    $date = $currentDate->format('Y-m') . '-' . sprintf('%02d', $day);
-    $registry = $registries[$date];
-    
+    $date = $currentdate->format('Y-m') . '-' . sprintf('%02d', $day);
+    $registry = isset($registries[$date]) ? $registries[$date] : null;
+
+
     if(isPastWorkday($date)) $workDay++;
 
     if($registry) {
